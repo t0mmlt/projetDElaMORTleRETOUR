@@ -1,0 +1,117 @@
+body {
+    background-image: url("/login_background.png");
+}
+
+#login_box {
+    width: 400px;
+    height: 500px;
+    border: solid 0.1em;
+    border-radius: 9px;
+    border-color: rgba(163, 163, 163, 0.385);
+    margin: auto;
+    margin-top: 7%;
+    background-color: rgba(255, 255, 255, 0.385);
+}
+
+#title {
+    text-align: center;
+    font-style: unset;
+    color: #00ba47;
+    font-size: 20px;
+}
+
+form input[type=email],
+form input[type=password] {
+    border: none;
+    width: 80%;
+    border: solid 1px rgba(163, 163, 163, 0.385);
+    outline: none;
+    border-radius: 8px;
+    height: 40px;
+    display: 16px;
+    color: black;
+    transition: 00.5s;
+    font-size: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 3%;
+}
+
+form input[type=email]:hover,
+form input[type=password]:hover {
+    transform: scale(1.02);
+}
+
+#mdp-oublié {
+    color: #666;
+    font-family: HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+#mdp-oublié:hover {
+    text-decoration: underline;
+}
+
+form input[name=login] {
+    border: none;
+    height: 40px;
+    margin-top: 2%;
+    outline: none;
+    font-size: 15px;
+    border-radius: 8px;
+    background-color: #00ba47;
+    color: white;
+    width: 80%;
+    height: 30px;
+    display: block;
+    margin: auto;
+    font-family: HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+form input[name=login]:hover {
+    transition: 00.5s;
+    transform: scale(1.03);
+}
+
+.ligne {
+    border-top: 1px solid #cbd2d6;
+    margin-left: 10%;
+    margin-top: 25px;
+    text-align: center;
+    width: 80%;
+}
+
+.ou {
+    background-color: #fff;
+    padding: 0 .5em;
+    position: relative;
+    color: #6c7378;
+    top: -.7em;
+    font-family: HelveticaNeue-Medium, "Helvetica Neue Medium", HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+form input[name=register] {
+    border: none;
+    height: 40px;
+    margin-top: 2%;
+    outline: none;
+    font-size: 15px;
+    border-radius: 8px;
+    background-color: #d2dbe1;
+    color: #2C2E2F;
+    width: 80%;
+    height: 30px;
+    display: block;
+    margin: auto;
+    font-family: HelveticaNeue-Medium, "Helvetica Neue Medium", HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+form input[name=register]:hover {
+    transition: 00.5s;
+    background-color: #c9ced1;
+    color: #2C2E2F;
+    transform: scale(1.03);
+}
+
