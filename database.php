@@ -20,9 +20,9 @@ $result = mysqli_query($conn, $sql);
 // Afficher les résultats sous forme de tableau
 if (mysqli_num_rows($result) > 0) {
   echo "<table>";
-  echo "<tr><th>ID</th><th>Nom</th><th>Email</th></tr>";
+  echo "<tr><th>ID</th><th>Email</th><th>Mot de passe</th></tr>";
   while($row = mysqli_fetch_assoc($result)) {
-    echo "<tr><td>".$row["id"]."</td><td>".$row["nom"]."</td><td>".$row["email"]."</td></tr>";
+    echo "<tr><td>".$row["id"]."</td><td>".$row["email"]."</td><td>".$row["password"]."</td></tr>";
   }
   echo "</table>";
 } else {

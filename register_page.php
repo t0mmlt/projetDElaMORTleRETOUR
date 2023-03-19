@@ -26,7 +26,7 @@ if ($passwordUn !== $passwordDe) {
 $hashed_password = password_hash($passwordUn, PASSWORD_DEFAULT);
 
 // Insérer les données dans la table d'utilisateurs de la base de données
-$stmt = $conn->prepare("INSERT INTO users (email, mot_de_passe) VALUES (?, ?)");
+$stmt = $conn->prepare("INSERT INTO 'users' ('email', 'password') VALUES ('text', 'mdp')");
 $stmt->bind_param("ss", $email, $hashed_password);
 
 if ($stmt->execute() === TRUE) {
