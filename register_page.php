@@ -1,40 +1,57 @@
-<?php
-// Connexion à la base de données MySQL
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "power tycoon";
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="style/login_page.css">
+</head>
+<body>
+  <div id="login_box">
+    <div id="title">
+      <br>
+      <h1>Power Tycoon</h1>
+    </div>
+    <div id="page_statut">
+      <h2>Création de compte</h2>
+    </div>
+    <form method="post" action="register_page.php">
+      <br>
+      <input type="email" name="email" placeholder="Email" required><br><br>
+      <input type="password" name="passwordUn" placeholder="Mot de passe" required><br><br>
+      <input type="password" name="passwordDe" placeholder="Confirmation du Mot de passe" required><br><br>
+      <br>
+      <input type="submit" id="btn1" name="login_btn" value="Création">
+    </form>
+  </div>
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+  <script>
+    // Validation des champs de mot de passe
+    var passwordUn = document.getElementsByName("passwordUn")[0];
+    var passwordDe = document.getElementsByName("passwordDe")[0];
+    var submitBtn = document.getElementById("btn1");
+    
+    function validatePassword() {
+      if (passwordUn.value != passwordDe.value) {
+        passwordDe.setCustomValidity("Les mots de passe ne correspondent pas");
+      } else {
+        passwordDe.setCustomValidity("");
+      }
+    }
+    
+    passwordUn.addEventListener("change", validatePassword);
+    passwordDe.addEventListener("change", validatePassword);
+    submitBtn.addEventListener("click", validatePassword);
+  </script>
 
-// Vérifier si la connexion a réussi
-if ($conn->connect_error) {
-  die("Erreur de connexion à la base de données: " . $conn->connect_error);
-}
 
-// Récupérer les données soumises par le formulaire
-$email = $_POST["email"];
-$passwordUn = $_POST["passwordUn"];
-$passwordDe = $_POST["passwordDe"];
+  <?php
+    include 'database.php';
+    global $db;
 
-// Vérifier que les mots de passe sont identiques
-if ($passwordUn !== $passwordDe) {
-  die("Les mots de passe ne correspondent pas");
-}
+    $q = $db->query("SELECT * FROM users");
+    
 
-// Hasher le mot de passe pour des raisons de sécurité
-$hashed_password = password_hash($passwordUn, PASSWORD_DEFAULT);
+  ?>
 
-// Insérer les données dans la table d'utilisateurs de la base de données
-$stmt = $conn->prepare("INSERT INTO 'users' ('email', 'password') VALUES ('text', 'mdp')");
-$stmt->bind_param("ss", $email, $hashed_password);
-
-if ($stmt->execute() === TRUE) {
-  echo "Compte créé avec succès!";
-} else {
-  echo "Erreur lors de la création du compte: " . $conn->error;
-}
-
-// Fermer la connexion à la base de données
-$conn->close();
-?>
+</body>
+</html>
