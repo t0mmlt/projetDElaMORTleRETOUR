@@ -1,5 +1,6 @@
 body {
-    background-image: url("/login_background.png");
+    background-image: url("../assets/login_background.png");
+    background-position: top;
 }
 
 #login_box {
@@ -10,22 +11,30 @@ body {
     border-color: rgba(163, 163, 163, 0.385);
     margin: auto;
     margin-top: 7%;
-    background-color: rgba(255, 255, 255, 0.385);
+    background-color: rgba(255, 255, 255, 0.644);
 }
-
+@font-face {
+    font-family: "Halo";
+    src: url("../assets/Halo3.ttf");
+}
 #title {
     text-align: center;
     font-style: unset;
-    color: #00ba47;
+    color: rgb(110, 172, 19);
     font-size: 20px;
+    font-family:  'Halo', sans-serif;
+}
+
+#page_statut{
+    text-align: center;
+    color: #545555;
 }
 
 form input[type=email],
 form input[type=password] {
     border: none;
     width: 80%;
-    border: solid 1px rgba(163, 163, 163, 0.385);
-    outline: none;
+    border: solid 1px rgba(187, 185, 185, 0.385);
     border-radius: 8px;
     height: 40px;
     display: 16px;
@@ -54,29 +63,29 @@ form input[type=password]:hover {
     text-decoration: underline;
 }
 
-form input[name=login] {
+form input[name=login_btn] {
     border: none;
     height: 40px;
     margin-top: 2%;
     outline: none;
     font-size: 15px;
     border-radius: 8px;
-    background-color: #00ba47;
+    background-color:rgb(110, 172, 19);
     color: white;
     width: 80%;
-    height: 30px;
+    height: 35px;
     display: block;
     margin: auto;
     font-family: HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-form input[name=login]:hover {
+form input[name=login_btn]:hover {
     transition: 00.5s;
     transform: scale(1.03);
 }
 
 .ligne {
-    border-top: 1px solid #cbd2d6;
+    border-top: 2px solid #cbd2d6;
     margin-left: 10%;
     margin-top: 25px;
     text-align: center;
@@ -85,32 +94,33 @@ form input[name=login]:hover {
 
 .ou {
     background-color: #fff;
-    padding: 0 .5em;
+    padding: 0 .8em;
     position: relative;
     color: #6c7378;
+    border-radius: 8px;
     top: -.7em;
     font-family: HelveticaNeue-Medium, "Helvetica Neue Medium", HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-form input[name=register] {
+form input[name=register_btn] {
     border: none;
     height: 40px;
     margin-top: 2%;
     outline: none;
     font-size: 15px;
     border-radius: 8px;
-    background-color: #d2dbe1;
-    color: #2C2E2F;
+    background-color: rgb(94, 94, 94);
+    color: white;
     width: 80%;
-    height: 30px;
+    height: 35px;
     display: block;
     margin: auto;
     font-family: HelveticaNeue-Medium, "Helvetica Neue Medium", HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-form input[name=register]:hover {
+form input[name=register_btn]:hover {
     transition: 00.5s;
-    background-color: #c9ced1;
+    background-color: #8d8e8f;
     color: #2C2E2F;
     transform: scale(1.03);
 }
