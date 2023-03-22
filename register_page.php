@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="style/login_page.css">
 </head>
+
 <body>
   <div id="login_box">
     <div id="title">
@@ -41,26 +43,34 @@
     passwordDe.addEventListener("change", validatePassword);
     submitBtn.addEventListener("click", validatePassword);
   </script>
-  <?php
+
+<?php
   include 'database.php';
   global $db;
 
-  if(isset($_POST['email']) && isset($_POST['passwordUn']) && isset($_POST['passwordDe'])){
-      $email = $_POST['email'];
-      $passwordUn = $_POST['passwordUn'];
+  if (isset($_POST['login_btn'])) {
+    $email = $_POST['email'];
+    $password = $_POST['passwordUn'];
 
-      if ($passwordUn == $_POST['passwordDe']) {
-          $password = password_hash($passwordUn, PASSWORD_DEFAULT);
-          $q = $db->prepare("INSERT INTO users(email, password) VALUES(:email, :password)");
-          $q->execute([
-              'email' => $email,
-              'password' => $password
-          ]);
-          echo "Compte créé avec succès.";
-      } else {
-          echo "Les mots de passe ne correspondent pas.";
-      }
+    // Vérifier si l'email existe déjà
+    $q = $db->prepare("SELECT COUNT(*) as count FROM users WHERE email = :email");
+    $q->execute(['email' => $email]);
+    $result = $q->fetch();
+    $count = $result['count'];
+
+    if ($count > 0) {
+      echo "<script>document.getElementById('email')[0].setCustomValidity('Cet e-mail est déjà associé à un compte');</script>";
+    } else {
+      echo "<script>document.getElementById('email').setCustomValidity('Cet e-mail est déjà associé à un compte');</script>";
+
+      $q = $db->prepare("INSERT INTO users(email, password) VALUES(:email, :password)");
+      $q->execute([
+        'email' => $email,
+        'password' => $password
+      ]);
+    }
   }
   ?>
 </body>
+
 </html>
