@@ -24,4 +24,4 @@ if(isset($_POST['login_btn'])) {
         // Les champs email et/ou mot de passe sont vides, affiche un message d'erreur
         $error_message = 'Veuillez remplir tous les champs';
     }
-}
+}fdwxfwd
