@@ -23,8 +23,24 @@
       <input type="submit" id="btn1" name="login_btn" value="Création">
     </form>
   </div>
-  
-  
+  <script>
+    // Validation des champs de mot de passe
+    var passwordUn = document.getElementsByName("passwordUn")[0];
+    var passwordDe = document.getElementsByName("passwordDe")[0];
+    var submitBtn = document.getElementById("btn1");
+
+    function validatePassword() {
+      if (passwordUn.value != passwordDe.value) {
+        passwordDe.setCustomValidity("Les mots de passe ne correspondent pas");
+      } else {
+        passwordDe.setCustomValidity("");
+      }
+    }
+
+    passwordUn.addEventListener("change", validatePassword);
+    passwordDe.addEventListener("change", validatePassword);
+    submitBtn.addEventListener("click", validatePassword);
+  </script>
   <?php
   include 'database.php';
   global $db;
