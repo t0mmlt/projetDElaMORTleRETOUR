@@ -8,6 +8,8 @@ $dbname = "power tycoon";
 // Connexion à la base de données
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
+//var_dump($users)
+
 // Vérifier la connexion
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());

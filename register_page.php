@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="style/login_page.css">
 </head>
+
 <body>
   <div id="login_box">
     <div id="title">
@@ -29,7 +31,7 @@
     var passwordUn = document.getElementsByName("passwordUn")[0];
     var passwordDe = document.getElementsByName("passwordDe")[0];
     var submitBtn = document.getElementById("btn1");
-    
+
     function validatePassword() {
       if (passwordUn.value != passwordDe.value) {
         passwordDe.setCustomValidity("Les mots de passe ne correspondent pas");
@@ -37,7 +39,7 @@
         passwordDe.setCustomValidity("");
       }
     }
-    
+
     passwordUn.addEventListener("change", validatePassword);
     passwordDe.addEventListener("change", validatePassword);
     submitBtn.addEventListener("click", validatePassword);
@@ -45,13 +47,14 @@
 
 
   <?php
-    include 'database.php';
-    global $db;
+  include 'database.php';
+  global $db;
 
-    $q = $db->query("SELECT * FROM users");
-    ifhbdshkbfbdsbjidsbhibchiwxihcbhjwxbhjcbhjwxh
-
+  $email = 
+  $q = $db->prepare("INSERT INTO users(email, password) VALUES(email, passwordUn)");
+  
   ?>
 
 </body>
+
 </html>
